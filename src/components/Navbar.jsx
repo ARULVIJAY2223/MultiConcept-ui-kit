@@ -1,16 +1,18 @@
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { Link } from "react-router-dom";
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#f5f6f8]/90 backdrop-blur-md">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#f5f6f8]/90 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-5 flex items-center justify-between">
 
         {/* Logo */}
-        <div className="flex items-center gap-3 cursor-pointer">
+        <Link to="/" className="flex items-center gap-3 cursor-pointer">
           <img
             src={logo}
             alt="E-Wallet Logo"
@@ -23,7 +25,7 @@ export default function Navbar() {
             </span>
             <span className="text-orange-400 ml-1">- WALLET</span>
           </h1>
-        </div>
+        </Link>
 
         {/* Global Nav (Desktop) */}
         <nav className="hidden md:flex gap-12 text-gray-700 font-medium">
@@ -43,12 +45,18 @@ export default function Navbar() {
 
         {/* Action Button & Mobile Toggle */}
         <div className="flex items-center gap-4">
-          <a
-            href="#signup"
+          <Link
+            to="/login"
+            className="hidden sm:inline-block text-gray-700 hover:text-indigo-600 font-semibold px-4 transition"
+          >
+            Login
+          </Link>
+          <Link
+            to="/signup"
             className="hidden sm:inline-block bg-orange-400 hover:bg-orange-500 text-white px-5 md:px-7 py-2.5 md:py-3 rounded-full font-medium transition shadow-md text-sm md:text-base"
           >
             Sign Up
-          </a>
+          </Link>
 
           {/* Hamburger Menu Icon */}
           <button
@@ -70,15 +78,23 @@ export default function Navbar() {
           <a href="#about" onClick={() => setIsOpen(false)} className="hover:text-indigo-500 transition-colors">About</a>
           <a href="#services" onClick={() => setIsOpen(false)} className="hover:text-indigo-500 transition-colors">Services</a>
           <a href="#features" onClick={() => setIsOpen(false)} className="hover:text-indigo-500 transition-colors">Features</a>
-          <a
-            href="#signup"
+          <Link
+            to="/login"
             onClick={() => setIsOpen(false)}
-            className="sm:hidden bg-orange-400 text-white px-10 py-3.5 rounded-full shadow-lg active:scale-95 transition-all"
+            className="text-gray-700 hover:text-indigo-600 transition-colors"
+          >
+            Login
+          </Link>
+          <Link
+            to="/signup"
+            onClick={() => setIsOpen(false)}
+            className="bg-orange-400 text-white px-10 py-3.5 rounded-full shadow-lg active:scale-95 transition-all"
           >
             Sign Up
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
   );
 }
+

@@ -1,6 +1,5 @@
 import heroImg from "../assets/hero.png";
-import mastercard from "../assets/mastercard.png";
-import visa from "../assets/visa.png";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -65,11 +64,14 @@ export default function Hero() {
 
           {/* Buttons */}
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-6">
-            <button className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-600 text-white px-8 py-4 rounded-full text-lg font-medium shadow-md transition">
+            <Link
+              to="/signup"
+              className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-600 text-white px-8 py-4 rounded-full text-lg font-medium shadow-md transition text-center"
+            >
               Get Started
-            </button>
+            </Link>
 
-            <button className="flex items-center gap-3 text-gray-700 font-medium">
+            <button className="flex items-center gap-3 text-gray-700 font-medium whitespace-nowrap">
               <span className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center text-sm">
                 ▶
               </span>
